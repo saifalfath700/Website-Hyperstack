@@ -1,0 +1,1120 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <title>HyperStack – Prediksi Risiko Hipertensi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- CSS utama -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#hero">
+      <span class="logo-dot">🩺</span> HyperStack
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+        <li class="nav-item"><a class="nav-link active" href="#hero">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Ringkasan</a></li>
+        <li class="nav-item"><a class="nav-link" href="#journal">Hipertensi</a></li>
+        <li class="nav-item"><a class="nav-link" href="#teknologi">Teknologi</a></li>
+        <li class="nav-item"><a class="nav-link" href="#coba">Prediksi</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE SHELL -->
+<div class="page-shell mt-5">
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <p class="text-uppercase fw-semibold mb-1" style="font-size:.8rem;color:#fb923c;">
+          Hypertension Risk · Machine Learning Web App
+        </p>
+        <h1 class="hero-title mb-2">
+          We create <span class="hero-highlight">smart predictions</span><br>
+          for your healthcare data.
+        </h1>
+        <p class="hero-sub mb-4">
+          HyperStack memanfaatkan model Machine Learning dari penelitian <i>Hypertension Risk Prediction Using Stacking Ensemble of CatBoost, XGBoost, and LightGBM: A Machine Learning Approach</i> dan data klinis
+          untuk memperkirakan risiko hipertensi secara cepat, akurat, dan mudah dipahami oleh
+          masyarakat maupun tenaga kesehatan.
+        </p>
+        <div class="hero-cta-group d-flex flex-wrap gap-3">
+          <a href="#coba" class="btn btn-primary btn-pill hover-bounce">Mulai Prediksi</a>
+          <a href="#services" class="btn btn-outline-secondary btn-pill">Lihat Ringkasan</a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="hero-illustration">
+          🧑‍⚕️📊
+          <div class="bubble bubble-1"></div>
+          <div class="bubble bubble-2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS / SERVICES -->
+  <section id="services" class="section-block">
+    <div class="text-center mb-4">
+      <h2 class="section-heading">Gambaran Singkat Performa Model</h2>
+      <p class="section-subheading mx-auto">
+        Model stacking ensemble hipertensi pada HyperStack menggabungkan beberapa algoritma
+        untuk memberikan akurasi tinggi, waktu prediksi yang cepat, dan hasil yang mudah diinterpretasi.
+      </p>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-md-3">
+        <div class="card-feature text-center" data-bs-toggle="tooltip" title="Akurasi pada data uji 20%">
+          <div class="icon-circle icon-orange">📈</div>
+          <h6 class="fw-semibold mb-1">Akurasi Model</h6>
+          <p class="metric-label mb-1">Accuracy</p>
+          <p class="metric-value mb-1">92,65%</p>
+          <p class="small text-muted mb-0">Lebih baik dibandingkan sejumlah model tunggal seperti XGBoost.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card-feature text-center" data-bs-toggle="tooltip" title="Kecepatan prediksi rata-rata">
+          <div class="icon-circle icon-blue">⚡</div>
+          <h6 class="fw-semibold mb-1">Waktu Prediksi</h6>
+          <p class="metric-label mb-1">Latency</p>
+          <p class="metric-value mb-1">&lt; 3s</p>
+          <p class="small text-muted mb-0">Perhitungan skor risiko dilakukan hampir secara real-time.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card-feature text-center" data-bs-toggle="tooltip" title="Jumlah baris data setelah preprocessing">
+          <div class="icon-circle icon-purple">📂</div>
+          <h6 class="fw-semibold mb-1">Data Pelatihan</h6>
+          <p class="metric-label mb-1">Samples</p>
+          <p class="metric-value mb-1">4.240+</p>
+          <p class="small text-muted mb-0">Data klinis tabular dengan 13 fitur relevan.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card-feature text-center" data-bs-toggle="tooltip" title="Base learner + meta learner">
+          <div class="icon-circle icon-green">🧠</div>
+          <h6 class="fw-semibold mb-1">Pendekatan Stacking</h6>
+          <p class="metric-label mb-1">Models</p>
+          <p class="metric-value mb-1">4</p>
+          <p class="small text-muted mb-0">
+            CatBoost, XGBoost, LightGBM &amp; Logistic Regression digunakan secara terintegrasi.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PENJELASAN HIPERTENSI & DATA -->
+  <section id="journal" class="section-block journal-section">
+    <div class="row g-4 align-items-stretch">
+      <!-- Penjelasan Hipertensi -->
+      <div class="col-lg-7">
+        <div class="journal-card h-100">
+          <div class="badge-soft mb-2">
+            <span>🩺</span> Ringkasan Hipertensi
+          </div>
+          <h3 class="section-heading mb-2">Apa itu hipertensi?</h3>
+          <p class="section-subheading mb-3">
+            Hipertensi adalah kondisi ketika tekanan darah di pembuluh darah secara konsisten
+            berada di atas batas normal (umumnya &ge; 140/90 mmHg). Apabila tidak terkontrol,
+            hipertensi meningkatkan risiko stroke, penyakit jantung, gagal ginjal, dan
+            komplikasi kardiovaskular lainnya.
+          </p>
+          <p class="mb-3" style="color:var(--text-muted);font-size:.93rem;">
+            Sebagian besar penderita tidak merasakan gejala yang khas. Karena itu, pendekatan
+            prediksi risiko berbasis data dapat membantu mengidentifikasi individu dengan
+            risiko tinggi lebih awal sehingga upaya pencegahan, modifikasi gaya hidup,
+            dan terapi dapat diberikan sebelum terjadi kerusakan organ.
+          </p>
+
+          <div class="row g-2">
+            <div class="col-sm-6">
+              <div class="stat-pill">
+                <div class="stat-icon">🌍</div>
+                <div>
+                  <span class="stat-value">1,2+ miliar</span>
+                  <span class="stat-label">Orang dewasa di dunia hidup dengan hipertensi.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="stat-pill">
+                <div class="stat-icon" style="background:#fee2e2;">📊</div>
+                <div>
+                  <span class="stat-value">40–50%</span>
+                  <span class="stat-label">Belum terdiagnosis atau belum terkontrol dengan baik.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="stat-pill">
+                <div class="stat-icon" style="background:#dcfce7;">🧪</div>
+                <div>
+                  <span class="stat-value">4.240</span>
+                  <span class="stat-label">Data pasien yang digunakan dalam pengembangan HyperStack.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="stat-pill">
+                <div class="stat-icon" style="background:#fef9c3;">📈</div>
+                <div>
+                  <span class="stat-value">13 fitur</span>
+                  <span class="stat-label">Termasuk tekanan darah, BMI, glukosa, status merokok, dan riwayat klinis.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion interaktif -->
+      <div class="col-lg-5">
+        <div class="journal-card h-100">
+          <div class="badge-soft mb-2">
+            <span>📚</span> Cara Memahami Hasil Prediksi
+          </div>
+          <h6 class="fw-semibold mb-2">Dari data pasien menjadi skor risiko</h6>
+          <p class="mb-3" style="color:var(--text-muted);font-size:.9rem;">
+            Panel berikut menjelaskan secara ringkas bagaimana data diproses, apa arti skor
+            risiko yang dihasilkan, dan bagaimana hasil tersebut sebaiknya dimanfaatkan secara
+            bijak oleh pengguna.
+          </p>
+
+          <div class="accordion" id="hipertensiAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="h1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#c1" aria-expanded="true" aria-controls="c1">
+                  Bagaimana data pasien diproses?
+                </button>
+              </h2>
+              <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1"
+                   data-bs-parent="#hipertensiAccordion">
+                <div class="accordion-body">
+                  Data seperti usia, tekanan darah, BMI, glukosa, riwayat merokok, dan kondisi klinis
+                  lainnya dibersihkan terlebih dahulu, kemudian dinormalisasi dan diseimbangkan
+                  menggunakan SMOTE. Setelah itu, fitur-fitur tersebut dimasukkan ke model
+                  stacking ensemble untuk menghasilkan probabilitas risiko hipertensi.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="h2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#c2" aria-expanded="false" aria-controls="c2">
+                  Apa arti skor risiko di HyperStack?
+                </button>
+              </h2>
+              <div id="c2" class="accordion-collapse collapse" aria-labelledby="h2"
+                   data-bs-parent="#hipertensiAccordion">
+                <div class="accordion-body">
+                  Skor risiko merupakan probabilitas (0–100%) bahwa pasien termasuk kategori
+                  risiko tinggi berdasarkan fitur yang diinput. Kategori <em>Risiko Tinggi</em>
+                  menunjukkan perlunya pemantauan lebih intensif dan konsultasi dengan tenaga kesehatan.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="h3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#c3" aria-expanded="false" aria-controls="c3">
+                  Apakah hasil dapat menggantikan diagnosis dokter?
+                </button>
+              </h2>
+              <div id="c3" class="accordion-collapse collapse" aria-labelledby="h3"
+                   data-bs-parent="#hipertensiAccordion">
+                <div class="accordion-body">
+                  Tidak. HyperStack dikembangkan sebagai sarana edukasi dan pendukung pengambilan
+                  keputusan awal. Hasil prediksi tidak dapat digunakan sebagai dasar tunggal untuk
+                  keputusan klinis dan harus selalu dipadukan dengan pemeriksaan fisik, wawancara
+                  medis, serta penilaian profesional dokter.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMPLE WORKFLOW STRIP -->
+  <section class="section-block strip-soft">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <div class="step-chip">
+          <span class="step-number">★</span>
+          Alur Penggunaan
+        </div>
+        <h3 class="section-heading mb-2">Langkah penggunaan bagi pengguna umum dan tenaga kesehatan.</h3>
+        <p class="section-subheading mb-3">
+          Alur yang sederhana membuat HyperStack dapat digunakan sebagai sarana edukasi,
+          pendamping konsultasi, maupun bahan presentasi penelitian terkait hipertensi.
+        </p>
+        <ul class="list-unstyled mb-3">
+          <li class="mb-2">
+            <span class="badge rounded-pill text-bg-warning me-2">1</span>
+            Isi data dasar pasien (usia, jenis kelamin, tekanan darah, BMI, glukosa, status merokok).
+          </li>
+          <li class="mb-2">
+            <span class="badge rounded-pill text-bg-info me-2">2</span>
+            Sistem menjalankan proses prapemrosesan data dan model stacking ensemble di server Flask.
+          </li>
+          <li class="mb-2">
+            <span class="badge rounded-pill text-bg-success me-2">3</span>
+            Halaman menampilkan kategori risiko serta probabilitas yang mudah dibaca dan dijelaskan.
+          </li>
+        </ul>
+        <a href="#coba" class="btn btn-outline-dark btn-pill">Lihat Form Prediksi</a>
+      </div>
+      <div class="col-lg-6">
+        <div class="hero-illustration" style="height:210px;">
+          📱📉
+          <div class="bubble bubble-1"></div>
+          <div class="bubble bubble-2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEKNOLOGI -->
+  <section id="teknologi" class="section-block tech-section">
+    <div class="d-flex flex-wrap align-items-center justify-content-between mb-3">
+      <div>
+        <div class="tech-header-line">Model · Data · Evaluasi</div>
+        <h3 class="section-heading mb-1">Our Technology Stack</h3>
+        <p class="section-subheading mb-2">
+          HyperStack mengolah data pasien menjadi skor risiko hipertensi menggunakan kombinasi
+          beberapa algoritma machine learning yang saling melengkapi.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="tech-pill"><span class="icon">🧠</span> Gradient Boosting</div>
+          <div class="tech-pill"><span class="icon">📊</span> Logistic Regression</div>
+          <div class="tech-pill"><span class="icon">🧬</span> SMOTE Balancing</div>
+        </div>
+      </div>
+
+      <ul class="nav nav-pills tech-tabs mt-3 mt-md-0" id="techTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="model-tab" data-bs-toggle="pill"
+                  data-bs-target="#model" type="button" role="tab"
+                  aria-controls="model" aria-selected="true">
+            Model
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="data-tab" data-bs-toggle="pill"
+                  data-bs-target="#data" type="button" role="tab"
+                  aria-controls="data" aria-selected="false">
+            Dataset
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="usecase-tab" data-bs-toggle="pill"
+                  data-bs-target="#usecase" type="button" role="tab"
+                  aria-controls="usecase" aria-selected="false">
+            Use Case
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="tab-content mt-3">
+      <!-- TAB: MODEL -->
+      <div class="tab-pane fade show active" id="model" role="tabpanel" aria-labelledby="model-tab">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="tech-card mod-1">
+              <div class="tech-card-title">
+                <span class="icon">🧠</span> Base Learners
+              </div>
+              <p>
+                CatBoost, XGBoost, dan LightGBM dilatih dengan hyperparameter yang dioptimalkan
+                untuk menyeimbangkan bias–variance dan menangani fitur tabular secara efisien.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="tech-card mod-2">
+              <div class="tech-card-title">
+                <span class="icon">📊</span> Meta Learner
+              </div>
+              <p>
+                Logistic Regression menggabungkan output probabilitas dari base learners menjadi
+                skor risiko akhir yang stabil dan mudah diinterpretasi.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="tech-card mod-3">
+              <div class="tech-card-title">
+                <span class="icon">✅</span> Evaluasi
+              </div>
+              <p>
+                Akurasi 92,65% dengan precision 0,93 serta recall dan F1-score 0,92, dianalisis
+                melalui confusion matrix untuk memastikan performa yang seimbang.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: DATASET -->
+      <div class="tab-pane fade" id="data" role="tabpanel" aria-labelledby="data-tab">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="tech-card mod-1">
+              <div class="tech-card-title">
+                <span class="icon">📁</span> Dataset Klinis
+              </div>
+              <p>
+                4.240 baris data pasien dengan 13 fitur, mencakup usia, jenis kelamin,
+                tekanan darah, kolesterol, glukosa, BMI, status merokok, dan variabel
+                klinis penting lainnya.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="tech-card mod-2">
+              <div class="tech-card-title">
+                <span class="icon">🧪</span> Preprocessing &amp; SMOTE
+              </div>
+              <p>
+                Data dibersihkan, nilai hilang diimputasi, fitur dinormalisasi,
+                kemudian kelas target diseimbangkan menggunakan SMOTE agar model
+                tidak bias terhadap kelas risiko rendah saja.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: USE CASE -->
+      <div class="tab-pane fade" id="usecase" role="tabpanel" aria-labelledby="usecase-tab">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="tech-card mod-1">
+              <div class="tech-card-title">
+                <span class="icon">🏥</span> Screening Klinis
+              </div>
+              <p>
+                Mendukung klinik dan rumah sakit dalam melakukan penilaian awal risiko
+                hipertensi sebelum pemeriksaan lanjutan oleh dokter.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="tech-card mod-2">
+              <div class="tech-card-title">
+                <span class="icon">🎓</span> Media Pembelajaran
+              </div>
+              <p>
+                Dapat dimanfaatkan sebagai alat bantu praktikum Machine Learning &amp; Data Mining
+                di bidang kesehatan untuk mahasiswa dan peneliti.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="tech-card mod-3">
+              <div class="tech-card-title">
+                <span class="icon">🖥️</span> Presentasi Penelitian
+              </div>
+              <p>
+                Menyajikan hasil penelitian dalam bentuk web interaktif yang mudah dipahami
+                oleh dosen, penguji, maupun audiens non-teknis saat presentasi ilmiah.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- PANDUAN PENGISIAN PARAMETER -->
+<section id="panduan-fitur" class="section-block guideline-section">
+  <div class="guideline-card">
+    <div class="d-flex flex-wrap justify-content-between align-items-start mb-3">
+      <div>
+        <div class="guideline-chip mb-2">
+          <span class="icon">📋</span>
+          Panduan Pengisian Parameter
+        </div>
+        <h3 class="section-heading mb-1">Panduan Pengisian Parameter</h3>
+        <p class="section-subheading mb-0">
+          Tabel berikut menjelaskan arti setiap fitur yang digunakan model, kisaran nilai yang
+          umumnya dianggap normal, serta batas minimum dan maksimum yang dianjurkan untuk input.
+          Nilai di luar rentang ini biasanya jarang dijumpai dan sebaiknya dikonfirmasi kembali.
+        </p>
+      </div>
+    </div>
+
+    <div class="accordion accordion-guideline" id="accordionPanduan">
+      <!-- PROFIL PASIEN -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panduanProfilHeading">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panduanProfil" aria-expanded="true" aria-controls="panduanProfil">
+            👤 Profil Pasien
+          </button>
+        </h2>
+        <div id="panduanProfil" class="accordion-collapse collapse show"
+             aria-labelledby="panduanProfilHeading" data-bs-parent="#accordionPanduan">
+          <div class="accordion-body">
+            <div class="table-responsive">
+              <table class="table table-sm align-middle table-guideline">
+                <thead>
+                  <tr>
+                    <th>Fitur</th>
+                    <th>Penjelasan</th>
+                    <th>Kisaran Normal* (umum)</th>
+                    <th>Rentang Input (min–maks)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Usia (tahun)</strong></td>
+                    <td>Umur pasien dalam tahun. Model difokuskan pada populasi dewasa.</td>
+                    <td>18 – 59 tahun (dewasa non-lansia)<br>60+ tahun dianggap lansia.</td>
+                    <td>18 – 90</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Jenis Kelamin (male)</strong></td>
+                    <td>Kode jenis kelamin yang digunakan model: 1 = laki-laki, 0 = perempuan.</td>
+                    <td>– (bukan nilai numerik)</td>
+                    <td>0 atau 1</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Status Merokok</strong></td>
+                    <td>Apakah pasien merupakan perokok aktif saat ini. 1 = perokok, 0 = tidak.</td>
+                    <td>Nilai sehat: 0 (tidak merokok).</td>
+                    <td>0 atau 1</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Rokok per Hari (CigsPerDay)</strong></td>
+                    <td>Rata-rata jumlah batang rokok yang dihisap per hari oleh perokok aktif.</td>
+                    <td>0 (tidak merokok).<br>Perokok ringan: &lt; 10 batang/hari.</td>
+                    <td>0 – 40</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Obat Tekanan Darah (BPMeds)</strong></td>
+                    <td>Status penggunaan obat antihipertensi. 1 = sedang menggunakan, 0 = tidak.</td>
+                    <td>– (ditentukan oleh terapi dokter).</td>
+                    <td>0 atau 1</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIWAYAT KLINIS -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panduanKlinisHeading">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panduanKlinis" aria-expanded="false" aria-controls="panduanKlinis">
+            🩺 Riwayat Klinis
+          </button>
+        </h2>
+        <div id="panduanKlinis" class="accordion-collapse collapse"
+             aria-labelledby="panduanKlinisHeading" data-bs-parent="#accordionPanduan">
+          <div class="accordion-body">
+            <div class="table-responsive">
+              <table class="table table-sm align-middle table-guideline">
+                <thead>
+                  <tr>
+                    <th>Fitur</th>
+                    <th>Penjelasan</th>
+                    <th>Kisaran Normal* (umum)</th>
+                    <th>Rentang Input (min–maks)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Riwayat Stroke (prevalentStroke)</strong></td>
+                    <td>Riwayat pernah mengalami stroke. 1 = pernah, 0 = tidak pernah.</td>
+                    <td>Nilai sehat: 0 (tidak ada riwayat stroke).</td>
+                    <td>0 atau 1</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Riwayat Hipertensi (prevalentHyp)</strong></td>
+                    <td>Riwayat diagnosis hipertensi sebelumnya. 1 = pernah / ada, 0 = tidak.</td>
+                    <td>Nilai sehat: 0 (belum pernah terdiagnosis hipertensi).</td>
+                    <td>0 atau 1</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Diabetes</strong></td>
+                    <td>Status diabetes melitus. 1 = memiliki diabetes, 0 = tidak.</td>
+                    <td>Nilai sehat: 0 (tidak ada diabetes).</td>
+                    <td>0 atau 1</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Kolesterol Total (totChol)</strong></td>
+                    <td>Kadar kolesterol total dalam darah, satuan mg/dL.</td>
+                    <td>
+                      &lt; 200 mg/dL: diinginkan<br>
+                      200–239: batas tinggi<br>
+                      ≥ 240: tinggi
+                    </td>
+                    <td>100 – 400 mg/dL</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PARAMETER FISIK -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panduanFisikHeading">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panduanFisik" aria-expanded="false" aria-controls="panduanFisik">
+            📊 Parameter Fisik
+          </button>
+        </h2>
+        <div id="panduanFisik" class="accordion-collapse collapse"
+             aria-labelledby="panduanFisikHeading" data-bs-parent="#accordionPanduan">
+          <div class="accordion-body">
+            <div class="table-responsive">
+              <table class="table table-sm align-middle table-guideline">
+                <thead>
+                  <tr>
+                    <th>Fitur</th>
+                    <th>Penjelasan</th>
+                    <th>Kisaran Normal* (umum)</th>
+                    <th>Rentang Input (min–maks)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>SysBP</strong></td>
+                    <td>Tekanan darah sistolik (atas) dalam mmHg.</td>
+                    <td>
+                      90–119 mmHg: normal<br>
+                      120–129: tinggi normal<br>
+                      ≥130: meningkat
+                    </td>
+                    <td>80 – 220 mmHg</td>
+                  </tr>
+                  <tr>
+                    <td><strong>DiaBP</strong></td>
+                    <td>Tekanan darah diastolik (bawah) dalam mmHg.</td>
+                    <td>
+                      60–79 mmHg: normal<br>
+                      80–89: tinggi normal<br>
+                      ≥90: meningkat
+                    </td>
+                    <td>40 – 130 mmHg</td>
+                  </tr>
+                  <tr>
+                    <td><strong>BMI</strong></td>
+                    <td>
+                      Indeks massa tubuh (kg/m²), dihitung dari berat badan dan tinggi badan.
+                    </td>
+                    <td>
+                      18,5–24,9: normal<br>
+                      25,0–29,9: overweight<br>
+                      ≥30: obesitas
+                    </td>
+                    <td>15 – 45 kg/m²</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Glukosa</strong></td>
+                    <td>
+                      Perkiraan kadar glukosa darah (mg/dL). Interpretasi tergantung konteks
+                      (puasa / sewaktu).
+                    </td>
+                    <td>
+                      Puasa: 70–99 mg/dL: normal<br>
+                      100–125: pradiabetes<br>
+                      ≥126: diabetes (perlu konfirmasi)
+                    </td>
+                    <td>50 – 300 mg/dL</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Detak Jantung (heartRate)</strong></td>
+                    <td>
+                      Frekuensi denyut jantung per menit (bpm), diukur saat istirahat.
+                    </td>
+                    <td>
+                      60–100 bpm: normal untuk dewasa<br>
+                      Atlet terlatih dapat &lt; 60 bpm.
+                    </td>
+                    <td>40 – 160 bpm</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="guideline-note">
+      *Kisaran “normal” di atas merupakan panduan umum untuk edukasi. Interpretasi klinis
+      tetap harus mempertimbangkan konteks masing-masing pasien dan dilakukan oleh tenaga
+      kesehatan profesional.
+    </p>
+  </div>
+</section>
+
+
+  <!-- FORM PREDIKSI + HASIL -->
+  <section id="coba" class="section-block">
+    <h3 class="section-heading mb-1">Prediksi Risiko Hipertensi</h3>
+    <p class="section-subheading mb-3">
+      Lengkapi parameter klinis untuk memperoleh estimasi kategori risiko dan probabilitas
+      yang dihasilkan oleh model stacking ensemble.
+    </p>
+
+    <div class="demo-wrapper">
+      <div class="row g-4 align-items-start">
+        <!-- FORM -->
+        <div class="col-lg-7">
+          <form id="predict-form" action="{{ url_for('predict') }}" method="POST" class="mt-1">
+            <!-- Profil Pasien -->
+            <div class="demo-group">
+              <div class="demo-group-title">
+                <span class="icon">👤</span> PROFIL PASIEN
+              </div>
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label class="form-label">Usia (tahun)</label>
+                  <input type="number" name="age" class="form-control input-clean"
+                         placeholder="18–90"
+                         min="18" max="90" data-range-guard="true" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Jenis Kelamin</label>
+                  <select name="male" class="form-select input-clean" required>
+                    <option value="" hidden>Pilih</option>
+                    <option value="1">Laki-laki</option>
+                    <option value="0">Perempuan</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Status Merokok</label>
+                  <select name="currentSmoker" class="form-select input-clean" required>
+                    <option value="" hidden>Pilih</option>
+                    <option value="1">Perokok</option>
+                    <option value="0">Tidak</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row g-3 mt-1">
+                <div class="col-md-4">
+                  <label class="form-label">Rokok per Hari (CigsPerDay)</label>
+                  <input type="number" step="1" name="cigsPerDay"
+                         class="form-control input-clean"
+                         placeholder="0–40"
+                         min="0" max="40" data-range-guard="true">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Obat Tekanan Darah (BPMeds)</label>
+                  <select name="BPMeds" class="form-select input-clean" required>
+                    <option value="" hidden>Pilih</option>
+                    <option value="1">Ya</option>
+                    <option value="0">Tidak</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Riwayat Stroke</label>
+                  <select name="prevalentStroke" class="form-select input-clean" required>
+                    <option value="" hidden>Pilih</option>
+                    <option value="1">Pernah</option>
+                    <option value="0">Tidak</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Riwayat Klinis -->
+            <div class="demo-group">
+              <div class="demo-group-title">
+                <span class="icon">🩺</span> RIWAYAT KLINIS
+              </div>
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label class="form-label">Riwayat Hipertensi</label>
+                  <select name="prevalentHyp" class="form-select input-clean" required>
+                    <option value="" hidden>Pilih</option>
+                    <option value="1">Ya</option>
+                    <option value="0">Tidak</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Diabetes</label>
+                  <select name="diabetes" class="form-select input-clean" required>
+                    <option value="" hidden>Pilih</option>
+                    <option value="1">Ya</option>
+                    <option value="0">Tidak</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Kolesterol Total (mg/dL)</label>
+                  <input type="number" name="totChol" class="form-control input-clean"
+                         placeholder="100–400"
+                         min="100" max="400" data-range-guard="true" required>
+                </div>
+              </div>
+            </div>
+
+            <!-- Parameter Fisik -->
+            <div class="demo-group">
+              <div class="demo-group-title">
+                <span class="icon">📊</span> PARAMETER FISIK
+              </div>
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label class="form-label">SysBP (mmHg)</label>
+                  <input type="number" name="sysBP" class="form-control input-clean"
+                         placeholder="80–220"
+                         min="80" max="220" data-range-guard="true" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">DiaBP (mmHg)</label>
+                  <input type="number" name="diaBP" class="form-control input-clean"
+                         placeholder="40–130"
+                         min="40" max="130" data-range-guard="true" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">BMI (kg/m²)</label>
+                  <input type="number" step="0.1" name="BMI"
+                         class="form-control input-clean"
+                         placeholder="15–45"
+                         min="15" max="45" data-range-guard="true" required>
+                </div>
+              </div>
+              <div class="row g-3 mt-1">
+                <div class="col-md-4">
+                  <label class="form-label">Glukosa (mg/dL)</label>
+                  <input type="number" step="1" name="glucose"
+                         class="form-control input-clean"
+                         placeholder="50–300"
+                         min="50" max="300" data-range-guard="true" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Detak Jantung (bpm)</label>
+                  <input type="number" name="heartRate" class="form-control input-clean"
+                         placeholder="40–160"
+                         min="40" max="160" data-range-guard="true" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="demo-actions mt-2">
+              <button type="submit" class="btn btn-primary btn-pill hover-bounce">
+                Jalankan Prediksi
+              </button>
+              <button type="button" class="btn btn-preset" data-preset="normal">
+                Contoh Pasien Risiko Rendah
+              </button>
+              <button type="button" class="btn btn-preset" data-preset="high">
+                Contoh Pasien Risiko Tinggi
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- PANEL HASIL PREDIKSI -->
+        <div class="col-lg-5">
+          <div class="demo-panel">
+            <div class="demo-panel-header">
+              <div>
+                <div class="demo-tag mb-1">Hasil Prediksi</div>
+                <div class="fw-semibold">Hypertension Risk Score</div>
+              </div>
+              <div class="chip-live">
+                <span class="chip-live-dot"></span>
+                Mode Interaktif
+              </div>
+            </div>
+
+            {% if sudah_prediksi %}
+              <div class="mb-2">
+                <div class="small text-muted mb-1">Kategori Risiko</div>
+                <span class="chip-risk {% if prediction == 'Risiko Rendah' %}low{% endif %}">
+                  {{ prediction }}
+                </span>
+              </div>
+
+              <!-- Penjelasan spesifik per kategori -->
+              <p class="result-meta mb-2">
+                {% if prediction == 'Risiko Rendah' %}
+                  Berdasarkan data yang dimasukkan, model tidak menemukan indikasi kuat ke arah hipertensi.
+                  Tetap dianjurkan menjaga pola hidup sehat, mengontrol berat badan, dan memeriksa tekanan
+                  darah secara berkala.
+                {% elif prediction == 'Risiko Sedang' %}
+                  Model mengindikasikan adanya beberapa faktor yang dapat meningkatkan risiko hipertensi.
+                  Pertimbangkan untuk memperbaiki gaya hidup (aktivitas fisik, pola makan, berhenti merokok)
+                  dan berdiskusi dengan tenaga kesehatan mengenai pemantauan lebih lanjut.
+                {% elif prediction == 'Risiko Tinggi' %}
+                  Model mengindikasikan kombinasi faktor risiko yang kuat terkait hipertensi. Hasil ini
+                  menunjukkan perlunya evaluasi lebih komprehensif dan konsultasi dengan tenaga kesehatan
+                  dalam waktu dekat untuk menentukan langkah penatalaksanaan yang sesuai.
+                {% endif %}
+              </p>
+
+              {% if prob %}
+              <div class="mt-2">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <span class="small text-muted">Probabilitas Risiko Tinggi</span>
+                  <span class="small fw-semibold">{{ prob }}%</span>
+                </div>
+                <div class="prob-bar mb-2">
+                  <div class="prob-bar-fill" style="width: {{ prob }}%;"></div>
+                </div>
+                <p class="result-meta mb-1">
+                  Probabilitas dihitung dari output meta-learner Logistic Regression
+                  berdasarkan fitur klinis yang Anda masukkan.
+                </p>
+                <p class="result-warning small text-muted mb-0">
+                  ⚠️ <strong>Catatan:</strong> HyperStack tidak menggantikan diagnosis dokter.
+                  Hasil ini hanya estimasi risiko dan harus dikonfirmasi melalui konsultasi medis
+                  dan pemeriksaan fisik langsung.
+                </p>
+              </div>
+              {% endif %}
+
+              <hr class="my-3">
+
+              <div class="result-meta">
+                <span class="fw-semibold">Ringkasan input:</span><br>
+                Usia {{ age if age is defined else '–' }} tahun,
+                SysBP {{ sysBP if sysBP is defined else '–' }} mmHg,
+                DiaBP {{ diaBP if diaBP is defined else '–' }} mmHg,
+                BMI {{ BMI if BMI is defined else '–' }} kg/m²,
+                Glukosa {{ glucose if glucose is defined else '–' }} mg/dL,
+                Detak jantung {{ heartRate if heartRate is defined else '–' }} bpm.
+              </div>
+            {% else %}
+              <p class="text-muted mb-2">
+                Lengkapi data pada formulir di sebelah kiri atau gunakan contoh pasien
+                untuk melihat bagaimana model menghitung kategori risiko dan probabilitas.
+              </p>
+              <ul class="result-meta mb-0">
+                <li>Gunakan nilai yang realistis (misalnya SysBP 120–180, BMI 18–35).</li>
+                <li>Isian Ya/Tidak akan dikonversi menjadi nilai 1 dan 0 sebelum diproses.</li>
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div>
+      <h5 class="mb-1">Siap digunakan dalam edukasi dan praktik klinis awal.</h5>
+      <p class="mb-0" style="font-size:.9rem;">
+        HyperStack dapat mendukung diskusi antara pasien dan tenaga kesehatan,
+        sekaligus memperkuat pemahaman masyarakat mengenai faktor risiko hipertensi.
+      </p>
+    </div>
+    <a href="#coba" class="btn btn-pill">Gunakan HyperStack</a>
+  </div>
+
+  <!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="row gy-4 align-items-start">
+
+      <!-- BRAND + DESCRIPTION -->
+      <div class="col-md-4">
+        <div class="footer-brand">
+          <span>HyperStack</span> · Hypertension Risk Prediction
+        </div>
+        <div class="footer-note mt-1">
+          Platform web untuk visualisasi dan eksplorasi hasil prediksi risiko hipertensi berbasis Machine Learning.
+        </div>
+      </div>
+
+      <!-- FOOTER NAVIGATION -->
+      <div class="col-md-4 text-md-center">
+        <div class="footer-links">
+          <a href="#hero">Beranda</a>
+          <a href="#services">Ringkasan</a>
+          <a href="#journal">Hipertensi</a>
+          <a href="#teknologi">Teknologi</a>
+          <a href="#coba">Prediksi</a>
+        </div>
+      </div>
+
+      <!-- CONTACT EMAIL -->
+      <div class="col-md-4 text-md-end">
+        <div class="footer-contact mb-1">
+          <span class="footer-contact-title">Hubungi Kami</span>
+          <div class="footer-email">
+            <span class="footer-email-icon"></span>
+            <a href="mailto:rayshafee@gmail.com">
+              rayshafee@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-tech mt-2">
+          Built with Flask, Python &amp; Machine Learning.
+        </div>
+        <div class="footer-note mt-1">
+          © {{ 2025 }} HyperStack. All rights reserved.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-shell -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Tooltip bootstrap
+  const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  tooltipTriggerList.map(function (t) {
+    return new bootstrap.Tooltip(t);
+  });
+
+  // Tombol "contoh pasien" untuk mengisi form otomatis
+  document.querySelectorAll(".btn-preset").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const preset = btn.dataset.preset;
+      const form = btn.closest("form");
+      if (!form) return;
+
+      if (preset === "normal") {
+        form.age.value = 35;
+        form.male.value = "0";
+        form.currentSmoker.value = "0";
+        form.cigsPerDay.value = 0;
+        form.BPMeds.value = "0";
+        form.prevalentStroke.value = "0";
+        form.prevalentHyp.value = "0";
+        form.diabetes.value = "0";
+        form.totChol.value = 200;
+        form.sysBP.value = 120;
+        form.diaBP.value = 80;
+        form.BMI.value = 24.5;
+        form.glucose.value = 95;
+        form.heartRate.value = 72;
+      } else if (preset === "high") {
+        form.age.value = 60;
+        form.male.value = "1";
+        form.currentSmoker.value = "1";
+        form.cigsPerDay.value = 20;
+        form.BPMeds.value = "1";
+        form.prevalentStroke.value = "1";
+        form.prevalentHyp.value = "1";
+        form.diabetes.value = "1";
+        form.totChol.value = 260;
+        form.sysBP.value = 170;
+        form.diaBP.value = 100;
+        form.BMI.value = 32.0;
+        form.glucose.value = 150;
+        form.heartRate.value = 90;
+      }
+    });
+  });
+
+  // Penjaga rentang input (clamp ke min–max + peringatan ramah)
+  let rangeWarningTimeout = null;
+  function showRangeWarning(message) {
+    // Hindari spam alert: batasi 1x dalam 2 detik
+    if (rangeWarningTimeout) return;
+    alert(message);
+    rangeWarningTimeout = setTimeout(() => {
+      rangeWarningTimeout = null;
+    }, 2000);
+  }
+
+  function clampInput(el) {
+    if (!el) return;
+    const min = el.min !== "" ? parseFloat(el.min) : null;
+    const max = el.max !== "" ? parseFloat(el.max) : null;
+    if (el.value === "") return;
+
+    let val = parseFloat(el.value.replace(",", "."));
+    if (isNaN(val)) return;
+
+    let clamped = val;
+    if (min !== null && val < min) clamped = min;
+    if (max !== null && val > max) clamped = max;
+
+    if (clamped !== val) {
+      el.value = clamped;
+      const labelEl = el.closest(".col-md-4, .col-md-6, .col-md-3")?.querySelector(".form-label");
+      const fieldName = labelEl ? labelEl.textContent.trim() : "nilai";
+      const minText = min !== null ? min : "-";
+      const maxText = max !== null ? max : "-";
+      showRangeWarning(
+        `Isian untuk "${fieldName}" telah disesuaikan agar berada dalam rentang ${minText}–${maxText}. ` +
+        `Silakan periksa kembali data yang Anda masukkan.`
+      );
+    }
+  }
+
+  // Pasang listener ke semua input yang diberi data-range-guard="true"
+  document.querySelectorAll('input[data-range-guard="true"]').forEach(function (el) {
+    // Koreksi saat user selesai mengisi (blur) atau mengubah (change)
+    el.addEventListener("blur", function () { clampInput(el); });
+    el.addEventListener("change", function () { clampInput(el); });
+  });
+    // Submit form prediksi tanpa reload seluruh halaman
+  const predictForm = document.getElementById('predict-form');
+  if (predictForm) {
+    predictForm.addEventListener('submit', async function (e) {
+      e.preventDefault(); // cegah reload full page
+
+      const formData = new FormData(predictForm);
+
+      try {
+        const response = await fetch(predictForm.action, {
+          method: 'POST',
+          body: formData
+        });
+
+        const html = await response.text();
+
+        // Ambil hanya bagian .demo-panel dari HTML hasil prediksi
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const newPanel = doc.querySelector('.demo-panel');
+        const currentPanel = document.querySelector('.demo-panel');
+
+        if (newPanel && currentPanel) {
+          currentPanel.innerHTML = newPanel.innerHTML;
+          // Scroll halus ke panel hasil
+          currentPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Terjadi kesalahan saat memproses prediksi. Silakan coba lagi.');
+      }
+    });
+  }
+
+</script>
+</body>
+</html>
