@@ -7,4 +7,3 @@ lightgbm
 catboost
 numpy
 pandas
-gunicorn
